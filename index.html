@@ -672,21 +672,20 @@
         }
     </style>
 </head>
-
 <!-- Nhạc nền tự động phát -->
 <audio id="bg-music" autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_3f6814de9e.mp3" type="audio/mpeg">
+  <source src="AhaTok_nhacnen.mp3" type="audio/mpeg">
   Trình duyệt của bạn không hỗ trợ phát nhạc.
 </audio>
 
 <script>
-  // Cho phép tự động phát nhạc (fix lỗi chặn autoplay của trình duyệt)
+  // Cho phép tự động phát (fix chặn autoplay)
   document.addEventListener("DOMContentLoaded", () => {
     const audio = document.getElementById("bg-music");
     const playPromise = audio.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
-        // Nếu bị chặn, tự phát khi người dùng tương tác
+        // Nếu bị chặn, phát khi người dùng click lần đầu
         document.addEventListener("click", () => {
           audio.play();
         }, { once: true });
@@ -694,7 +693,6 @@
     }
   });
 </script>
-
 <body>
 
     <svg style="display: none;" id="theSvg" viewBox="-120 -30 240 180" enable-background="new 0 0 174 148"
@@ -1272,5 +1270,6 @@
 
     </script>
 </body>
+
 
 </html>
